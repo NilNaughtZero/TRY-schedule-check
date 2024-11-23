@@ -1,0 +1,100 @@
+/* src/components/ShiftCalendar.css */
+.shift-calendar-container {
+  padding: 1rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.shift-calendar {
+  overflow-x: auto;
+}
+
+.month-header {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #1a365d;
+}
+
+.week-container {
+  margin-bottom: 2rem;
+}
+
+.shift-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+  margin-bottom: 1rem;
+}
+
+.shift-table th,
+.shift-table td {
+  border: 1px solid #e2e8f0;
+  padding: 8px;
+  text-align: center;
+}
+
+.time-column {
+  background-color: #f8fafc;
+  min-width: 120px;
+}
+
+.date-column {
+  background-color: #f8fafc;
+  min-width: 100px;
+  position: relative;
+}
+
+.weekday {
+  font-size: 0.8em;
+  color: #666;
+  margin-top: 2px;
+}
+
+.time-slot {
+  background-color: #f8fafc;
+  font-weight: 500;
+}
+
+.shift-cell {
+  background-color: #ffffff;
+}
+
+.has-shift {
+  background-color: #e6f3ff;
+}
+
+.sunday,
+.sunday .weekday {
+  color: #e53e3e;
+}
+
+.saturday,
+.saturday .weekday {
+  color: #3182ce;
+}
+
+.current-day {
+  background-color: #ebf8ff;
+  font-weight: bold;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .shift-calendar-container {
+    padding: 0.5rem;
+  }
+
+  .shift-table {
+    font-size: 0.9rem;
+  }
+
+  .time-column {
+    min-width: 80px;
+  }
+
+  .date-column {
+    min-width: 70px;
+  }
+}
