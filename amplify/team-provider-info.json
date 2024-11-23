@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-calapp-dev-72d9f-authRole",
+      "UnauthRoleArn": "arn:aws:iam::039612844349:role/amplify-calapp-dev-72d9f-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::039612844349:role/amplify-calapp-dev-72d9f-authRole",
+      "Region": "ap-northeast-1",
+      "DeploymentBucketName": "amplify-calapp-dev-72d9f-deployment",
+      "UnauthRoleName": "amplify-calapp-dev-72d9f-unauthRole",
+      "StackName": "amplify-calapp-dev-72d9f",
+      "StackId": "arn:aws:cloudformation:ap-northeast-1:039612844349:stack/amplify-calapp-dev-72d9f/5c74f9d0-a9a6-11ef-9c3f-0eaee26dfe53",
+      "AmplifyAppId": "d24tqf2hndy0eq"
+    },
+    "categories": {
+      "auth": {
+        "calapp7488ef5d": {}
+      }
+    }
+  }
+}

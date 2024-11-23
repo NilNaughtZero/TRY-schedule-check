@@ -1,29 +1,50 @@
-// src/App.js
 import React, { useState } from 'react';
+import { Authenticator } from '@aws-amplify/ui-react';
+import '@aws-amplify/ui-react/styles.css';
 import ShiftCalendar from './components/ShiftCalendar';
 import './App.css';
 
-function App() {
-  // テスト用のダミーデータ（より現実的な例）
-  const [shifts] = useState([
-    { date: '10/07', timeSlot: 5, description: 'テストシフト1' },
-    { date: '10/08', timeSlot: 2, description: 'テストシフト2' },
-    { date: '10/10', timeSlot: 3, description: 'テストシフト3' }
-  ]);
+const App = () => {
+  const [error, setError] = useState(null);
+
+  // 仮のシフトデータ
+  const shifts = [
+    { date: '2024-11-23', timeSlot: 1, description: 'Morning Shift' },
+    { date: '2024-11-24', timeSlot: 2, description: 'Evening Shift' },
+  ];
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>シフトカレンダー</h1>
-      </header>
-      <main className="App-main">
-        <ShiftCalendar 
-          shifts={shifts} 
-          month={new Date()} 
-        />
-      </main>
-    </div>
+    <Authenticator>
+      {({ user, signOut, isLoading }) => (
+        isLoading ? (
+          <p>Loading...</p>
+        ) : (
+          <div className="App">
+            <header className="App-header">
+              <h1>
+                {`${user?.attributes?.name || user?.username || 'ゲスト'}さんのカレンダー`}
+              </h1>
+              <button onClick={signOut} className="signout-button">
+                ログアウト
+              </button>
+            </header>
+            <main className="App-main">
+              {error ? (
+                <div className="error-message">
+                  <p>エラーが発生しました: {error}</p>
+                </div>
+              ) : (
+                <ShiftCalendar month={new Date()} shifts={shifts} />
+              )}
+            </main>
+            <footer className="App-footer">
+              <p>Powered by AWS Amplify</p>
+            </footer>
+          </div>
+        )
+      )}
+    </Authenticator>
   );
-}
+};
 
 export default App;
